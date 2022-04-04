@@ -1,11 +1,11 @@
-import { constantTypes } from "../types";
+import { themeTypes } from "../types";
 import colors from "./colors";
-import { defaultWallpaper } from "./images";
+import { wallpaper2 } from "./images";
 
-const defaultTheme: constantTypes.Theme = {
+const defaultTheme: themeTypes.Theme = {
   colors,
   font: "Noto Sans",
-  wallpaper: defaultWallpaper
+  wallpaper: wallpaper2
 };
 
 export {

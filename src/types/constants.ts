@@ -6,9 +6,3 @@ export type Colors = {
   black: string;
   white: string;
 }
-
-export type Theme = {
-  colors: Colors;
-  font: string;
-  wallpaper: string;
-}
