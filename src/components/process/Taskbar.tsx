@@ -1,11 +1,18 @@
 import React from "react";
 
 import { StyledTaskbar } from "../../styles";
+import {
+  LaunchButton,
+  FullFlex,
+  Clock
+} from "../common";
 
 const Taskbar:React.FC = () => {
   return(
     <StyledTaskbar>
-      <h3>Menu</h3>
+      <LaunchButton />
+      <FullFlex />
+      <Clock />
     </StyledTaskbar>
   );
 }

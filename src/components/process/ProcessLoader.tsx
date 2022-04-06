@@ -9,7 +9,7 @@ const ProcessLoader: React.FC = () => {
     <>
       {Object.keys(processes).map(key => {
         const Component = processes[key].component;
-        return <Component />
+        return <Component key={key} />
       })}
     </>
   );
