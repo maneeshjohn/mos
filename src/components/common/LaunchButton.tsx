@@ -1,11 +1,13 @@
 import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCentos } from "@fortawesome/free-brands-svg-icons";
 
 import { StyledLaunchButton } from "../../styles/common";
 
 const LaunchButton:React.FC = () => {
   return(
     <StyledLaunchButton>
-      Menu
+      <FontAwesomeIcon icon={faCentos} />
     </StyledLaunchButton>
   );
 }

@@ -1,24 +1,25 @@
 import React, { useState, useEffect } from "react";
+import moment from "moment";
 
 import { StyledClock } from "../../styles/common";
+
+const ONE_SECOND = 1000;
+const ONE_MINUTE = 60 * ONE_SECOND;
 
 const Clock:React.FC = () => {
 
   const [time, setTime] = useState<string>("");
 
-  const parseTime = (time: Date) => {
-    let hours = time.getHours();
-    let minutes = time.getSeconds();
-    setTime(`${hours < 10? "0" + hours: hours}:${minutes < 10? "0" + minutes: minutes}`);
+  const parseTime = () => {
+    setTime(moment().format("hh:mm A"));
   }
 
   useEffect(() => {
-    // parseTime(new Date());
-    const timer = setInterval(() => {
-      console.log("timer")
-      parseTime(new Date())
-    }, 1000);
-    return clearInterval(timer);
+    parseTime();
+    const timeoutId = setInterval(() => {
+      parseTime();
+    }, ONE_MINUTE);
+    return () => clearInterval(timeoutId);
   }, []);
 
   return <StyledClock>{time}</StyledClock>;
