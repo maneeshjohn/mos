@@ -1,15 +1,14 @@
 import React from "react";
-import styled from "styled-components";
 
-const Title = styled.h1`
-  color: pink;
-`;
+import { AppThemeProvider } from "./contexts/theme";
+
+import Desktop from "./components/process/Desktop";
 
 function App() {
   return (
-    <div className="App">
-      <Title>Hello</Title>
-    </div>
+    <AppThemeProvider>
+      <Desktop />
+    </AppThemeProvider>
   );
 }
 

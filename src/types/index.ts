@@ -1,7 +1,9 @@
 import * as constantTypes from "./constants";
-import * as contextTypes from "./contexts";
+import * as themeTypes from "./theme";
+import * as processTypes from "./process"
 
 export {
   constantTypes,
-  contextTypes
+  themeTypes,
+  processTypes 
 }

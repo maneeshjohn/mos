@@ -1,11 +1,11 @@
-import { createContext } from "react";
+import { createContext, useContext } from "react";
 import { ThemeProvider } from "styled-components";
 
 import { useTheme } from "../hooks";
-import { contextTypes } from "../types";
+import { themeTypes } from "../types";
 import { defaultTheme } from "../constants";
 
-export const { Consumer, Provider } = createContext<contextTypes.ThemeContext>({
+const AppThemeContext = createContext<themeTypes.ThemeContext>({
   theme: defaultTheme,
   setTheme: () => {}
 });
@@ -15,10 +15,21 @@ const AppThemeProvider: React.FC = ({ children }) => {
   const { theme, setTheme } = useTheme();
 
   return(
-    <Provider value={{ theme, setTheme }}>
+    <AppThemeContext.Provider value={{ theme, setTheme }}>
       <ThemeProvider theme={theme}>
         {children}
       </ThemeProvider>
-    </Provider>
+    </AppThemeContext.Provider>
   );
+}
+
+const useCurrentTheme = () => useContext(AppThemeContext).theme;
+
+const useChangeTheme = () => useContext(AppThemeContext).setTheme;
+
+export { 
+  AppThemeProvider,
+  AppThemeContext,
+  useCurrentTheme,
+  useChangeTheme
 }

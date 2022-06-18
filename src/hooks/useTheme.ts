@@ -1,12 +1,12 @@
 import { useState } from "react";
 
-import { constantTypes } from "../types";
+import { themeTypes } from "../types";
 import { defaultTheme } from "../constants";
 
-type UseTheme = () => ({ theme: constantTypes.Theme, setTheme: (t: constantTypes.Theme) => void })
+type UseTheme = () => ({ theme: themeTypes.Theme, setTheme: (t: themeTypes.Theme) => void }); 
 
 const useTheme: UseTheme = () => {
-  const [theme, setTheme] = useState<constantTypes.Theme>(defaultTheme);
+  const [theme, setTheme] = useState(defaultTheme);
 
   return { theme, setTheme };
 }
